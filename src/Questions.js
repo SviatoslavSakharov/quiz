@@ -48,7 +48,10 @@ function Question(props) {
                     </div>
                 </Grid >
                 <Grid item xs={6}>
-                    <Card sx={{ maxWidth: 300 }} style={{ backgroundColor: "#252d4a", marginBottom: "20px" }}>
+                    <Card sx={{ maxWidth: 300 }}
+                        style={answerState === 2 ? { backgroundColor: "red", marginBottom: "20px" } :
+                            answerState === 1 ? { backgroundColor: "green", marginBottom: "20px" } :
+                                { backgroundColor: "#252d4a", marginBottom: "20px" }}>
                         <CardContent>
                             <div className='question-text'>{questions[currentQuestion].questionText}</div>
                         </CardContent>

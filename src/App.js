@@ -10,21 +10,18 @@ import { questions } from './ImagesQuestions';
 function RandomPopup(props) {
   const { answerState } = props;
   return (
-    <div>
+    <>
       {answerState !== 0 && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ position: "fixed" }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <motion.img
             src={answerState === 1 ? K_true[Math.floor(Math.random() * K_true.length)] : K_false[Math.floor(Math.random() * K_false.length)]}
             alt="tet"
-            initial={{ y: 0 }}
-            animate={{ y: "-10vh", x: "20vw", position: "fixed" }}
             transition={{ duration: 0.5, when: "afterChildren" }}
-            style={{ maxWidth: "100%", maxHeight: "100%" }}
-            duration={100}
+            style={{ maxWidth: "90%", maxHeight: "90%", objectFit: "contain", position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
           />
         </motion.div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -38,8 +35,8 @@ export default function App() {
 
   return (
     <>
-      <RandomPopup answerState={answerState} />
       <div className='app' style={answerState === 2 ? { backgroundColor: "red" } : answerState === 1 ? { backgroundColor: "green" } : {}}>
+        <RandomPopup answerState={answerState} />
         {showScore ? (
           <div className='score-section'>
             You scored {score} out of {questions.length}
