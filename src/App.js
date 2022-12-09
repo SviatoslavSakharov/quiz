@@ -18,7 +18,7 @@ function RandomPopup(props) {
             alt="tet"
             initial={{ y: 0 }}
             animate={{ y: "-10vh", x: "20vw", position: "fixed" }}
-            transition={{ duration: 0.5, when: "afterChildren" }}
+            transition={{ duration: 1, when: "afterChildren" }}
             style={{ maxWidth: "100%", maxHeight: "100%" }}
           />
         </motion.div>
