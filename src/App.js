@@ -17,7 +17,7 @@ function RandomPopup(props) {
             src={answerState === 1 ? K_true[Math.floor(Math.random() * K_true.length)] : K_false[Math.floor(Math.random() * K_false.length)]}
             alt="tet"
             initial={{ y: 0 }}
-            animate={{ y: "-10vh", x: "25vw", position: "fixed" }}
+            animate={{ y: "-10vh", x: "20vw", position: "fixed" }}
             transition={{ duration: 0.5, when: "afterChildren" }}
             style={{ maxWidth: "100%", maxHeight: "100%" }}
           />
