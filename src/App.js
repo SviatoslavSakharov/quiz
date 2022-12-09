@@ -50,7 +50,7 @@ export default function App() {
   return (
     <>
       <RandomPopup showPopup={showPopup} />
-      <div className='app'>
+      <div className='app' style={showPopup ? { backgroundColor: "red" } : {}}>
         {showScore ? (
           <div className='score-section'>
             You scored {score} out of {5}

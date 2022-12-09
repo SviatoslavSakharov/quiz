@@ -22,7 +22,7 @@ body {
 
 .app {
   background-color: #252d4a;
-  width: 1000px;
+  width: 100%;
   min-height: 400px;
   height: min-content;
   border-radius: 15px;
@@ -57,7 +57,8 @@ body {
 
 .question-text {
   margin-bottom: 12px;
-  font-size: 24px;
+  font-size: 17px;
+  text-align: center;
 }
 
 .timer-text {

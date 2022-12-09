@@ -71,7 +71,6 @@ function Question(props) {
             }
         }
         else {
-            setClickedAnswer(answerText)
             setShowPopup(true)
             setTimeout(() => {
                 setShowPopup(false)
@@ -81,10 +80,10 @@ function Question(props) {
     };
     return (
         <>
-            <Grid container spacing={1}>
+            <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center">
                 <Grid item xs={12}>
                     <div style={{ marginBottom: "20px", textAlign: "center" }}>
-                        <span style={{ fontSize: "30px" }}>Question {currentQuestion + 1}/{questions.length}</span>
+                        <span style={{ fontSize: "25px" }}>Question {currentQuestion + 1}/{questions.length}</span>
                     </div>
                 </Grid >
                 <Grid item xs={6}>
@@ -95,16 +94,16 @@ function Question(props) {
                         <CardMedia
                             component="img"
                             alt="test"
-                            height="300"
+                            height="100%"
                             image={questions[currentQuestion].questionUrl}
                         />
                     </Card>
                 </Grid>
-                <Grid item xs={6}>
-                    <div style={{ marginTop: "100px" }}>
+                <Grid item xs={6} >
+                    <div style={{ marginTop: "" }}>
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
                             <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect, answerOption.answerText)}
-                                style={showPopup && (answerOption.answerText === clickedAnswer) ? { backgroundColor: "red" } : {}}>
+                                style={showPopup ? { backgroundColor: "red" } : {}}>
                                 <div >{answerOption.answerText}</div>
                             </button>
                         ))}
