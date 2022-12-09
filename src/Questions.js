@@ -2,51 +2,8 @@ import React, { useState } from 'react';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import franceUrl from './/img/France.jpg'
 import { CardContent } from '@mui/material';
-
-
-
-
-const questions = [
-    {
-        questionText: 'What is the capital of France?',
-        questionUrl: franceUrl,
-        answerOptions: [
-            { answerText: 'New York', isCorrect: false },
-            { answerText: 'London', isCorrect: false },
-            { answerText: 'Paris', isCorrect: true },
-            { answerText: 'Dublin', isCorrect: false },
-        ],
-    },
-    {
-        questionText: 'Who is CEO of Tesla?',
-        answerOptions: [
-            { answerText: 'Jeff Bezos', isCorrect: false },
-            { answerText: 'Elon Musk', isCorrect: true },
-            { answerText: 'Bill Gates', isCorrect: false },
-            { answerText: 'Tony Stark', isCorrect: false },
-        ],
-    },
-    {
-        questionText: 'The iPhone was created by which company?',
-        answerOptions: [
-            { answerText: 'Apple', isCorrect: true },
-            { answerText: 'Intel', isCorrect: false },
-            { answerText: 'Amazon', isCorrect: false },
-            { answerText: 'Microsoft', isCorrect: false },
-        ],
-    },
-    {
-        questionText: 'How many Harry Potter books are there?',
-        answerOptions: [
-            { answerText: '1', isCorrect: false },
-            { answerText: '4', isCorrect: false },
-            { answerText: '6', isCorrect: false },
-            { answerText: '7', isCorrect: true },
-        ],
-    },
-];
+import { questions } from './ImagesQuestions';
 
 
 
@@ -54,26 +11,30 @@ const questions = [
 
 function Question(props) {
     const [currentQuestion, setCurrentQuestion] = useState(0);
-    const { setShowPopup, showPopup } = props;
-    const { clickedAnswer, setClickedAnswer } = useState("");
+    const { answerState, setAnswerState } = props;
+
 
     const { setShowScore, setScore } = props;
 
 
-    const handleAnswerOptionClick = (isCorrect, answerText) => {
+    const handleAnswerOptionClick = (isCorrect) => {
         if (isCorrect) {
-            setScore(prevState => prevState + 1);
-            const nextQuestion = currentQuestion + 1;
-            if (nextQuestion < questions.length) {
-                setCurrentQuestion(nextQuestion);
-            } else {
-                setShowScore(true);
-            }
+            setAnswerState(1);
+            setTimeout(() => {
+                setAnswerState(0)
+                setScore(prevState => prevState + 1);
+                const nextQuestion = currentQuestion + 1;
+                if (nextQuestion < questions.length) {
+                    setCurrentQuestion(nextQuestion);
+                } else {
+                    setShowScore(true);
+                }
+            }, 1000)
         }
         else {
-            setShowPopup(true)
+            setAnswerState(2)
             setTimeout(() => {
-                setShowPopup(false)
+                setAnswerState(0)
             }, 1000)
         }
 
@@ -87,7 +48,7 @@ function Question(props) {
                     </div>
                 </Grid >
                 <Grid item xs={6}>
-                    <Card sx={{ maxWidth: 400 }} style={{ backgroundColor: "#252d4a", marginBottom: "20px" }}>
+                    <Card sx={{ maxWidth: 300 }} style={{ backgroundColor: "#252d4a", marginBottom: "20px" }}>
                         <CardContent>
                             <div className='question-text'>{questions[currentQuestion].questionText}</div>
                         </CardContent>
@@ -103,7 +64,7 @@ function Question(props) {
                     <div style={{ marginTop: "" }}>
                         {questions[currentQuestion].answerOptions.map((answerOption) => (
                             <button onClick={() => handleAnswerOptionClick(answerOption.isCorrect, answerOption.answerText)}
-                                style={showPopup ? { backgroundColor: "red" } : {}}>
+                                style={answerState === 2 ? { backgroundColor: "red" } : answerState === 1 ? { backgroundColor: "green" } : {}}>
                                 <div >{answerOption.answerText}</div>
                             </button>
                         ))}
