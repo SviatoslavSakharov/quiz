@@ -29,13 +29,13 @@ function Question(props) {
                 } else {
                     setShowScore(true);
                 }
-            }, 1000)
+            }, 2500)
         }
         else {
             setAnswerState(2)
             setTimeout(() => {
                 setAnswerState(0)
-            }, 1000)
+            }, 2500)
         }
 
     };
