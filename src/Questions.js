@@ -14,12 +14,13 @@ function Question(props) {
     const { answerState, setAnswerState } = props;
 
 
-    const { setShowScore, setScore } = props;
+    const { setShowState, setScore } = props;
 
 
     const handleAnswerOptionClick = (isCorrect) => {
         if (isCorrect) {
             setAnswerState(1);
+            setShowState("question");
             setTimeout(() => {
                 setAnswerState(0)
                 setScore(prevState => prevState + 1);
@@ -27,7 +28,7 @@ function Question(props) {
                 if (nextQuestion < questions.length) {
                     setCurrentQuestion(nextQuestion);
                 } else {
-                    setShowScore(true);
+                    setShowState("score");
                 }
             }, 2500)
         }
