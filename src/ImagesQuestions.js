@@ -22,11 +22,35 @@ import franceUrl from './/img/France.jpg'
 import pisaUrl from './/img/pisa.jpg'
 import physicistUrl from './/img/physicist.png'
 import fUrl from './/img/f.png'
+import amsterdamUrl from './/img/amsterdam.jpg'
+import galvanometerUrl from './/img/galvanometer.jpg'
+import waiterUrl from './/img/waiter.png'
+import sleepUrl from './/img/sleep.jpg'
 
 export const K_true = [K1_true, K2_true, K3_true, K4_true, K5_true, K6_true, K7_true, K8_true, K9_true];
 export const K_false = [K1_false, K2_false, K3_false, K4_false, K5_false, K6_false, K7_false, K8_false, K9_false];
 
 export const questions = [
+    {
+        questionText: 'Was braucht Kosta um einzuschlafen?',
+        questionUrl: sleepUrl,
+        answerOptions: [
+            { answerText: 'Ein Bett', isCorrect: false },
+            { answerText: 'Eine warme Decke', isCorrect: false },
+            { answerText: 'Dunkelheit und Stille', isCorrect: false },
+            { answerText: 'Filmabend mit Freunden', isCorrect: true },
+        ],
+    },
+    {
+        questionText: 'Was braucht Kosta um einzuschlafen?',
+        questionUrl: sleepUrl,
+        answerOptions: [
+            { answerText: 'Ein Bett', isCorrect: false },
+            { answerText: 'Eine warme Decke', isCorrect: false },
+            { answerText: 'Dunkelheit und Stille', isCorrect: false },
+            { answerText: 'Filmabend mit Freunden', isCorrect: true },
+        ],
+    },
     {
         questionText: 'Wer hat vom Schiefen Turm von Pisa Steine heruntergeworfen?',
         questionUrl: pisaUrl,
@@ -59,7 +83,7 @@ export const questions = [
     },
     {
         questionText: 'Was soll man sagen wenn eine Frau einen Tisch im Egmont für ihren Geburtstag reserviert hat?',
-        questionUrl: franceUrl,
+        questionUrl: waiterUrl,
         answerOptions: [
             { answerText: 'Alles Gute zum Geburtstag!', isCorrect: false },
             { answerText: 'Ich verstehe, aber sowas ist hier nicht erlaubt!', isCorrect: true },
@@ -79,12 +103,22 @@ export const questions = [
     },
     {
         questionText: 'Was soll man bei einer Reise nach Amsterdam unbedingt mitnehmen?',
-        questionUrl: franceUrl,
+        questionUrl: amsterdamUrl,
         answerOptions: [
             { answerText: '2te Jacke', isCorrect: false },
             { answerText: 'Eine Kamera', isCorrect: false },
             { answerText: 'Einen Regenschirm', isCorrect: false },
             { answerText: '2te Schuhpaar', isCorrect: true },
+        ],
+    },
+    {
+        questionText: 'Ein Galvanometer kann in ein Voltmeter umgewandelt werden, indem man __',
+        questionUrl: galvanometerUrl,
+        answerOptions: [
+            { answerText: 'niedriger Widerstand in Reihe schaltet', isCorrect: false },
+            { answerText: 'hoher Widerstand in Reihe schaltet', isCorrect: true },
+            { answerText: 'niedriger Widerstand parallel schaltet', isCorrect: false },
+            { answerText: 'hoher Widerstand parallel schaltet', isCorrect: false },
         ],
     },
 

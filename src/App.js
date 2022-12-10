@@ -57,7 +57,7 @@ export default function App() {
             <Grid marginTop={""} container alignItems="center" alignContent="center" spacing={2}>
               <Grid item xs={12} textAlign="center">Hallo Kosta!</Grid>
               <Grid item xs={12} textAlign="center">
-                Das ist ein sehr wichtiger Quiz! Du kriegst dein Geschenk nur dann, wenn du alle Fragen richtig beantwortest. Sei vorsichtig und hochkonzentriert!
+                Das ist ein sehr wichtiges Quiz! Du kriegst dein Geschenk nur dann, wenn du alle Fragen richtig beantwortest. Sei vorsichtig und hochkonzentriert!
               </Grid>
               <Grid item xs={12} textAlign="center">
                 <Button onClick={() => setShowState("question")} style={{ marginTop: "5%", backgroundColor: "green", maxWidth: "90%" }}>
