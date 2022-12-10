@@ -42,10 +42,10 @@ function Question(props) {
     };
     return (
         <>
-            <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center">
+            <Grid container spacing={1} direction="row" alignItems="center" justifyContent="center" maxWidth={"800px"}>
                 <Grid item xs={12}>
                     <div style={{ marginBottom: "20px", textAlign: "center" }}>
-                        <span style={{ fontSize: "25px" }}>Question {currentQuestion + 1}/{questions.length}</span>
+                        <span style={{ fontSize: "25px" }}>Frage {currentQuestion + 1}/{questions.length}</span>
                     </div>
                 </Grid >
                 <Grid item xs={6}>
